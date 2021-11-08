@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\controllers\EventController;
 
 Route::get('/', [EventController::class, 'index']);
-Route::get('/events/create', [EventController::class, 'create']);
-Route::post('/events', [EventController::class, 'store']);
+Route::get('/events/create', [EventController::class, 'create']); //direcionar para página create
+Route::get('/events/{id}', [EventController::class, 'show']); //rota para mostrar evento
+Route::post('/events', [EventController::class, 'store']); //criar dados no banco
 
 Route::get('/contact', function () {
     return view('contact');
